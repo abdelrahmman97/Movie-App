@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./resources/style.css">
+</head>
+
+<body>
+    <div id="background-image"></div>
+    <div class="left-menu">
+        <div class="menu">
+            <button type="button" id="btn-close" title="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <ul>
+                <li>
+                    <a href="./index.html" class="active-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                        </svg>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="./discover.html" class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path d="M10.586 10.586L16.95 7.05l-3.536 6.364L7.05 16.95l3.536-6.364z"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </svg>
+                        Discover
+                    </a>
+                </li>
+                <li>
+                    <a href="./trending.html" class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
+                        </svg>
+                        Trending
+
+                    </a>
+                </li>
+                <li>
+                    <a href="./favorite.html" class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
+                        </svg>
+                        Favorite
+
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <header class="header">
+            <ul>
+                <li>
+                    <button title="Open Menu" type="button" class="btn btn-transparent btn-no-border btn-left-menu">
+                        <svg class="btn-left-menu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <a href="#" class="header-link">Movies</a>
+                </li>
+                <li>
+                    <a href="#" class="header-link">Series</a>
+                </li>
+            </ul>
+            <a href="/index.html" class="logo" id="logo-plus" data-replace="+">
+                Cinema
+                <span>
+                    <strong>Plus</strong>
+                </span>
+            </a>
+            <ul>
+                <li>
+                    <div>
+                        <form action="">
+                            <input type="search" name="search" id="search" placeholder="Search">
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <a href="./login.html" class="header-link">Login</a>
+                </li>
+                <li>
+                    <hr class="vertical-line">
+                </li>
+                <li>
+                    <a href="./register.html" class="header-link">Register</a>
+                </li>
+            </ul>
+        </header>
+        <div class="login-content">
+            <form action="">
+                <div class="login-lbl">
+                    <p class="lbl-2">
+                        Login to your account<span>.</span>
+                    </p>
+                    <p class="lbl-3">
+                        Don't have an account? <a href="./register.html">Register</a>
+                    </p>
+                </div>
+                <div class="login-inputs">
+                    <div class="input-group">
+                        <input type="email" name="email" id="email" placeholder="Email">
+                    </div>
+                    <div class="input-group">
+                        <input type="password" name="password" id="password" placeholder="Password">
+                    </div>
+                    <button class="btn btn-default btn-rounded" type="button">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="./resources/js/index.js"></script>
+</body>
+
+</html>
