@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | User</title>
+    <link rel="stylesheet" href="./resources/style.css">
+</head>
+
+<body>
+
+    <!-- Movie background image -->
+    <div id="movie-bg-image"></div>
+
+    <!-- Left menu part -->
+    <div class="left-menu">
+        <div class="menu">
+            <button type="button" id="btn-close" title="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <ul>
+                <li>
+                    <a href="./index.html" class="active-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                        </svg>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="./discover.html" class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path d="M10.586 10.586L16.95 7.05l-3.536 6.364L7.05 16.95l3.536-6.364z"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </svg>
+                        Discover
+                    </a>
+                </li>
+                <li>
+                    <a href="./trending.html" class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
+                        </svg>
+                        Trending
+
+                    </a>
+                </li>
+                <li>
+                    <a href="./favorite.html" class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
+                        </svg>
+                        Favorite
+
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container user-home">
+        <!-- Header -->
+        <header class="header">
+            <ul>
+                <li>
+                    <button title="Open Menu" type="button" class="btn btn-transparent btn-no-border btn-left-menu">
+                        <svg class="btn-left-menu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <a href="#" class="header-link">Movies</a>
+                </li>
+                <li>
+                    <a href="#" class="header-link">Series</a>
+                </li>
+            </ul>
+            <a href="/index.html" class="logo" id="logo-plus" data-replace="+">
+                Cinema
+                <span>
+                    <strong>Plus</strong>
+                </span>
+            </a>
+            <ul>
+                <li>
+                    <div>
+                        <form action="">
+                            <input type="search" name="search" id="search" placeholder="Search">
+                        </form>
+                    </div>
+                </li>
+<!--                 <li class="dropdown"> -->
+                <li>
+                    <button id="dropdownAvatarNameButton" class="" type="button">
+                        <img class="" src="./resources/Images/user-avatar.jpg" alt="user photo">
+                        Abdelrahman Mahmoud
+                        <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 4 4 4-4" />
+                        </svg>
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div id="dropdownAvatarName" class="dropdownAvatarName">
+                        <ul class="" >
+                            <li>
+                                <a href="#"
+                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- <li>
+                    <a href="./login.html" class="header-link">Login</a>
+                </li>
+                <li>
+                    <hr class="vertical-line">
+                </li>
+                <li>
+                    <a href="./register.html" class="header-link">Register</a>
+                </li> -->
+            </ul>
+        </header>
+
+        <!-- Jumbotron section -->
+        <div class="user-home-content">
+
+            <!-- Now playing part -->
+            <div class="show-info">
+                <div class="div-badge">
+                    <span id="show-badge" class="show-badge">Now Playing</span>
+                </div>
+                <div class="div-title">
+                    <p class="show-title" id="show-title"></p>
+                </div>
+                <div class="div-description">
+                    <p class="show-desc" id="show-desc"></p>
+                </div>
+                <div class="div-btns">
+                    <button type="button" class="btn btn-default with-icon">
+                        Add to cart
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                        </svg>
+                    </button>
+                    <button type="button" class="btn btn-alt btn-transparent with-icon">
+                        More Info
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Slider -->
+            <div class="slider">
+                <!-- Slider controls -->
+                <div class="slider-controls">
+                    <!-- Previous Button -->
+                    <button type="button" title="previous" id="data-slider-prev" class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                        </svg>
+                    </button>
+                    <!-- Next Button -->
+                    <button type="button" title="Next" id="data-slider-next" class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </button>
+                </div>
+                <!-- Slider indicators -->
+                <div id="slider-indicators-group" class="slider-indicators-group">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Trending Movies & TV Shows -->
+    <div class="user-home-more">
+
+        <div class="trending-header">
+            <p class="trending-title">Trending Movies</p>
+            <a href="#" class="btn btn-alt with-icon">
+                View All
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+                </svg>
+            </a>
+        </div>
+
+        <div class="trnding-movies" id="trnding-movies"></div>
+
+        <div class="trending-header">
+            <p class="trending-title">Trending TV Shows</p>
+            <a href="#" class="btn btn-alt with-icon">
+                View All
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+                </svg>
+            </a>
+        </div>
+
+        <div class="trnding-TVshows" id="trnding-TVshows"></div>
+
+    </div>
+
+    <!-- for left menu and background image -->
+    <script src="./resources/js/index.js"></script>
+    <!-- for Now Playing part -->
+    <script src="./nowPlaying.js"></script>
+    <!-- for Trending part -->
+    <script src="./trending.js"></script>
+</body>
+
+</html>

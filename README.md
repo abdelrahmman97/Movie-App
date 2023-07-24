@@ -1,6 +1,6 @@
 <h1 align="center" id="title">Movie App</h1>
 
-<p id="description">A Movie App is an application project on JavaScript HTML and CSS for ITI Scholarship</p>
+<p id="description">A Movie App is an application project on JavaScript HTML and CSS for ITI - Intensive Code Camp (ICC) program Scholarship</p>
 
   
 <h2>🧐 Features</h2>
