@@ -22,3 +22,7 @@ Technologies used in the project:
 *   Css
 *   Pure JavaScript
 *   Browser Local Storage
+
+Team
+Abdelrahman
+Farouk
