@@ -214,7 +214,7 @@ svg {
     width: 16rem;
     padding: 10px 5px;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 0.35rem;
 }
 
 .dropdownAvatarName ul {
@@ -235,7 +235,7 @@ svg {
     display: block;
     background-color: transparent;
     padding: 0.3rem 1rem;
-    border-radius: 1rem;
+    border-radius: 0.3rem;
 }
 
 .dropdownAvatarName ul li a:hover {
@@ -263,7 +263,7 @@ svg {
     }
 
     100% {
-        top: 100%;
+        top: 110%;
     }
 }
 
@@ -278,7 +278,7 @@ svg {
     width: 0;
     overflow-x: hidden;
     transition: 0.5s;
-    background: rgb(0 0 0 / 0%);
+    background: #0000008c;
     -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
     border-right: 1px solid #40404052;
@@ -325,7 +325,7 @@ svg {
 }
 
 .left-menu .menu ul li a:hover {
-    background: #40404042;
+    background: #40404073;
 }
 
 #btn-close {

@@ -22,7 +22,6 @@ xhrMoviesGenres.send();
 xhrMoviesGenres.onreadystatechange = function () {
     if ( xhrMoviesGenres.readyState == 4 && xhrMoviesGenres.status == 200 ) {
         moviesGenersArray = JSON.parse( xhrMoviesGenres.responseText );
-        console.log( moviesGenersArray )
 
         var xhrMovies = new XMLHttpRequest();
         xhrMovies.open( "Get", 'https://api.themoviedb.org/3/trending/movie/day' );
@@ -61,7 +60,6 @@ xhrMoviesGenres.onreadystatechange = function () {
                     </a>
                     `;
                 }
-                console.log( moviesData )
             }
         }
     }
@@ -77,8 +75,6 @@ xhrTVShowsGenres.send();
 xhrTVShowsGenres.onreadystatechange = function () {
     if ( xhrTVShowsGenres.readyState == 4 && xhrTVShowsGenres.status == 200 ) {
         TVShowsGenersArray = JSON.parse( xhrTVShowsGenres.responseText );
-        console.log( TVShowsGenersArray )
-
 
         var xhrTV = new XMLHttpRequest();
         xhrTV.open( "Get", 'https://api.themoviedb.org/3/trending/tv/day' );
@@ -117,7 +113,6 @@ xhrTVShowsGenres.onreadystatechange = function () {
                     </a>
                     `;
                 }
-                console.log( TVShowsData )
             }
         }
     }

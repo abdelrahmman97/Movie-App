@@ -69,7 +69,6 @@ xhr.onreadystatechange = function () {
                 movieBgImage.style.backgroundImage = `url("https://image.tmdb.org/t/p/original/${resultsArr[index].backdrop_path}")`;
             }, sliderTime );
         }
-        console.log( data )
     }
 }
 
