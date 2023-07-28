@@ -2,11 +2,14 @@
 // Movie Poster and Background
 var movieBgImage = document.getElementById( "movie-bg-image" );
 var container = document.getElementsByClassName( "container" )[0];
-
+window
 // Movie Info
 var showTitle = document.getElementById( "show-title" );
 var showDesc = document.getElementById( "show-desc" );
 var showBadge = document.getElementById( "show-badge" );
+
+var addToCardBtn = document.getElementById( "addToCard" );
+var moreInfoBtn = document.getElementById( "moreInfo" );
 
 // Slider
 var sliderBtnNext = document.getElementById( "data-slider-next" );
@@ -37,6 +40,7 @@ xhr.onreadystatechange = function () {
     if ( xhr.readyState == 4 ) {
         data = JSON.parse( xhr.responseText );
         resultsArr = data.results;
+        console.log( data );
 
         // Slider animation
         for ( let x = 0; x < sliderItemsNumber; x++ ) {
@@ -48,6 +52,10 @@ xhr.onreadystatechange = function () {
         showTitle.innerHTML = resultsArr[index].title;
         showDesc.innerHTML = resultsArr[index].overview;
         movieBgImage.style.backgroundImage = `url("https://image.tmdb.org/t/p/original/${resultsArr[index].backdrop_path}")`;
+        // addToCardBtn.addEventListener( "click", addToCard(resultsArr[index].id) );
+        moreInfoBtn.addEventListener( "click", function () {
+            goToInfoPage( resultsArr[index].id );
+        } );
 
         if ( !nIntervId ) {
             nIntervId = setInterval( function () {
@@ -79,6 +87,11 @@ document.addEventListener( 'DOMContentLoaded', function () {
     }
 }, false );
 
+
+function goToInfoPage( _id ) {
+    var url = `./inteminfo.html?id=${_id}`;
+    document.location.href = url;
+}
 
 function showSlide( newIndex ) {
     index = newIndex;
