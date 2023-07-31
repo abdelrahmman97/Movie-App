@@ -156,7 +156,13 @@ svg {
 	border: none;
 	outline: none;
 	border-radius: 5px;
-	background-color: #3e3e3e8a;
+	/* background-color: #3e3e3e8a; */
+	background: #ffffff24;
+	/* box-shadow: 0 8px 32px 0 rgb(0 0 0 / 5%); */
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 #search:focus {
@@ -1435,7 +1441,79 @@ span.vote-count {
 	gap: 2rem;
 }
 
-.fav-btn.active svg{
+.fav-btn.active svg {
 	fill: #fff;
 }
 /* #endregion /*! Favorites Page */
+/* #region /*! Search Page */
+.search-content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 10rem;
+}
+
+.search-container {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: center;
+	width: 100%;
+	margin: 0 auto;
+	gap: 2rem;
+	padding: 2rem 1rem;
+	border-radius: 10px;
+	justify-content: center;
+	background: #4242428c;
+	-webkit-backdrop-filter: blur(15px);
+	backdrop-filter: blur(15px);
+	border: 1px solid #40404052;
+}
+
+.search-input {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+	width: 50%;
+	justify-content: center;
+	gap: 1rem;
+}
+#searchInput {
+	font-size: 15px;
+	padding: 10px 10px;
+	outline: none;
+	color: #fff;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	background-color: #42424214;
+	/* box-shadow: 0 8px 32px 0 rgb(0 0 0 / 5%); */
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.18);
+}
+#searchInput:focus {
+	background: #ffffff24;
+}
+
+#search-resualt{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	width: 100%;
+	margin: 0 auto;
+	padding: 2rem 1rem;
+	border-radius: 10px;
+	justify-content: flex-start;
+	background: #4242428c;
+	-webkit-backdrop-filter: blur(15px);
+	backdrop-filter: blur(15px);
+	border: 1px solid #40404052;
+	/* z-index: -99; */
+}
+/* #endregion /*! Search Page */
