@@ -61,7 +61,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./favorite.html" class="">
+                    <a href="./favorites.html" class="">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -109,27 +109,28 @@
                         </form>
                     </div>
                 </li>
-<!--                 <li class="dropdown"> -->
+                <!--                 <li class="dropdown"> -->
                 <li>
                     <button id="dropdownAvatarNameButton" class="" type="button">
-                        <img class="" src="./resources/Images/user-avatar.jpg" alt="user photo">
-                        Abdelrahman Mahmoud
+                        <img id="dropdownAvatar" src="./resources/Images/user-avatar.jpg" alt="user photo">
+                        <span id="dropdownUserName"></span>
                         <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 10 6">
+                            fill="none" viewBox="0 0 10 6" id="dropdownSvgIcon">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="m1 1 4 4 4-4" />
                         </svg>
                     </button>
                     <!-- Dropdown menu -->
                     <div id="dropdownAvatarName" class="dropdownAvatarName">
-                        <ul class="" >
+                        <ul class="">
                             <li>
                                 <a href="#"
                                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
                             </li>
                             <li>
-                                <a href="#"
-                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+                                <a href="#" id="signout"
+                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign
+                                    out</a>
                             </li>
                         </ul>
                     </div>
@@ -162,12 +163,12 @@
                 </div>
                 <div class="div-btns">
                     <button type="button" class="btn btn-default with-icon" id="addToCard">
-                        Add to cart
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                                d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
                         </svg>
+                        Play Now
                     </button>
                     <button type="button" class="btn btn-alt btn-transparent with-icon" id="moreInfo">
                         More Info

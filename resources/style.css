@@ -201,7 +201,7 @@ svg {
 	line-height: 1.25rem;
 	width: 16rem;
 	/* 256px */
-	background-color: transparent;
+	background-color: #3e3e3e8a;
 	border: none;
 	border-radius: 5rem;
 	display: flex;
@@ -547,20 +547,67 @@ svg {
 /* #endregion /*? Input */
 /* #endregion /*! Elements */
 
-/* #region /*! Login Page */
+/* #region /*! Login & Register Page */
+.registerLogin-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: stretch;
+	justify-content: space-between;
+}
+
 .login-content {
 	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	width: calc(100vw - 60%);
-	position: relative;
-	top: 10%;
-	left: 10%;
+	box-sizing: border-box;
 	padding: 1.5rem;
 	border-radius: 7px;
 	background: #ffffff1c;
 	-webkit-backdrop-filter: blur(1px);
 	backdrop-filter: blur(1px);
+	position: relative;
+	left: 10%;
+	width: 40%;
+	top: 15%;
+}
+
+.form-validation {
+	display: none;
+	flex-direction: column;
+	box-sizing: border-box;
+	padding: 1.5rem;
+	border-radius: 7px;
+	background: #ffffff1c;
+	-webkit-backdrop-filter: blur(1px);
+	backdrop-filter: blur(1px);
+	position: relative;
+	right: 10%;
+	top: 15%;
+	width: 30%;
+}
+#successReiteration {
+	color: #ffffff;
+	text-align: center;
+}
+
+.form-validation ul {
+	list-style-type: "🚨";
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	box-sizing: border-box;
+	padding: 0 1.5rem;
+	gap: 10px;
+}
+
+.form-validation ul li p {
+	font-size: 15px;
+	font-weight: 500;
+	color: #ffffff;
+}
+
+.form-validation ::marker {
+	font-size: 25px;
 }
 
 .login-lbl {
@@ -590,9 +637,16 @@ svg {
 }
 
 .login-lbl .lbl-2 span {
-	color: rgb(26 86 219/1);
+	/* color: rgb(26 86 219/1);
 	font-size: 7rem;
-	line-height: 0;
+	line-height: 0; */
+	width: 1rem;
+	height: 1rem;
+	display: inline-flex;
+	padding: 0;
+	background-color: rgb(26 86 219/1);
+	border-radius: 100%;
+	margin: 0 5px;
 }
 
 .login-lbl .lbl-3 a {
@@ -616,7 +670,7 @@ svg {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	width: 55%;
+	width: 100%;
 	flex-wrap: nowrap;
 	/*     background-color: #fff; */
 }
@@ -1030,7 +1084,7 @@ svg {
 	align-items: center;
 	gap: 10px;
 	color: #ffffff;
-	background-color: rgb(26 86 219/1);
+	/* background-color: rgb(26 86 219/1); */
 	border: none;
 	text-align: center;
 	font-weight: 500;
@@ -1126,6 +1180,7 @@ svg {
 	gap: 2rem;
 	position: absolute;
 	bottom: 2rem;
+	align-items: center;
 }
 
 .more-info {
@@ -1290,4 +1345,97 @@ span.vote-count {
 /* #posters-container::-webkit-scrollbar-thumb:hover {
 	background: rgba(71, 71, 71, 0.425);
 } */
+
+#addToFav svg {
+	padding: 0;
+}
+
+#addToFav svg {
+	width: 40px;
+	height: 40px;
+}
+
+#addToFav svg.active {
+	color: #ffffff;
+	fill: #ffffff;
+	stroke: #ffffff;
+}
+
+@-webkit-keyframes like {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.6);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes like {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.6);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
 /* #endregion /*! Info Page */
+/* #region /*! Favorites Page */
+.fav-content {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: stretch;
+	width: 100%;
+}
+
+.fav-content .fav-header {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: center;
+	color: #ffffff;
+}
+.fav-content .fav-header h2 {
+	color: #ffffff;
+	text-align: center;
+	margin: 15px 0 20px 0;
+	display: flex;
+	align-items: center;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	gap: 10px;
+}
+.fav-content .fav-header span {
+	font-weight: 500;
+	color: #3f51b5;
+	background-color: #ffffff;
+	padding: 0 10px;
+	border-radius: 5px;
+}
+
+#fav-container {
+	display: flex;
+	display: flex;
+	-webkit-backdrop-filter: blur(1px);
+	backdrop-filter: blur(1px);
+	background-color: #ffffff0f;
+	width: 90%;
+	margin: 0 auto;
+	height: 100%;
+	padding: 1rem 1rem;
+	border-radius: 1rem;
+	flex-wrap: wrap;
+	gap: 2rem;
+}
+
+.fav-btn.active svg{
+	fill: #fff;
+}
+/* #endregion /*! Favorites Page */

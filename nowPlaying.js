@@ -89,7 +89,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
 
 
 function goToInfoPage( _id ) {
-    var url = `./inteminfo.html?id=${_id}`;
+    var url = `./iteminfo.html?id=${_id}`;
     document.location.href = url;
 }
 

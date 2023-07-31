@@ -1,5 +1,37 @@
+var path = window.location.pathname;
+var page = path.split( "/" ).pop();
+
+var currentUser = JSON.parse( localStorage.getItem( "currentUser" ) );
+switch ( page ) {
+    case "index.html":
+        if ( currentUser != null ) {
+            window.location.replace( "./home.html" )
+        }
+        break;
+    case "login.html":
+    case "register.html":
+        if ( currentUser != null ) {
+            window.location.replace( "./home.html" )
+        }
+        break;
+    case "home.html":
+    case "iteminfo.html":
+    case "favorites.html":
+        if ( currentUser == null ) {
+            window.location.replace( "./index.html" )
+        }
+        break;
+
+    default:
+        break;
+}
+
 
 document.addEventListener( 'DOMContentLoaded', function () {
+    var dropdownUserName = this.getElementById( "dropdownUserName" );
+    if ( currentUser != null && dropdownUserName != null) {
+        dropdownUserName.innerHTML = currentUser.userName;
+    }
     var path = window.location.pathname;
     var page = path.split( "/" ).pop();
     var fav_li = document.getElementById( "fav-li" );
@@ -7,6 +39,8 @@ document.addEventListener( 'DOMContentLoaded', function () {
     if ( page == "index.html" || page == "/" || page == "" ) {
         fav_li.remove()
     }
+
+
     // Background image changer
     var bg = document.getElementById( "background-image" );
     if ( bg != null ) {
@@ -41,21 +75,44 @@ btnLeftMenuClose.addEventListener( 'click', function () {
 } );
 
 
-// Dropdown menu control show/hide
+// Dropdown menu control
 var btnOpenDropdownMenu = document.getElementById( "dropdownAvatarNameButton" );
 var dropdownMenu = document.getElementById( "dropdownAvatarName" );
+var dropdownUserName = document.getElementById( 'dropdownUserName' );
+var imgAvatar = document.getElementById( 'dropdownAvatar' );
+var svgIcon = document.getElementById( 'dropdownSvgIcon' );
+
 if ( btnOpenDropdownMenu != null && dropdownMenu != null ) {
 
+    // show / hide dropdown menu
     btnOpenDropdownMenu.addEventListener( 'click', function () {
-
         dropdownMenu.classList.toggle( "active" );
     } );
 
-    document.addEventListener( 'click', function () {
+    dropdownUserName.addEventListener( 'click', function ( event ) {
+        event.stopPropagation();
+        dropdownMenu.classList.toggle( "active" );
+    } );
+    imgAvatar.addEventListener( 'click', function ( event ) {
+        event.stopPropagation();
+        dropdownMenu.classList.toggle( "active" );
+    } );
+    svgIcon.addEventListener( 'click', function ( event ) {
+        event.stopPropagation();
+        dropdownMenu.classList.toggle( "active" );
+    } );
 
+    document.addEventListener( 'click', function ( event ) {
         if ( event.target != btnOpenDropdownMenu ) {
             dropdownMenu.classList.remove( "active" );
         }
-    }, false );
+    } );
+
+
+    // user signout
+    document.getElementById( "signout" ).addEventListener( "click", function () {
+        localStorage.removeItem( "currentUser" );
+        window.location.replace("./login.html")
+    })
 }
 

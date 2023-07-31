@@ -57,7 +57,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./favorite.html" class="">
+                    <a href="./favorites.html" class="">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -114,33 +114,42 @@
                 </li>
             </ul>
         </header>
-        <div class="login-content">
-            <form action="">
-                <div class="login-lbl">
-                    <p class="lbl-1">Start For Free</p>
-                    <p class="lbl-2">
-                        Create new account<span>.</span>
-                    </p>
-                    <p class="lbl-3">
-                        Already have an account? <a href="./login.html">Login</a>
-                    </p>
-                </div>
-                <div class="login-inputs">
-                    <div class="input-group">
-                        <input type="text" name="username" id="usernamr" placeholder="Username">
+        <div class="registerLogin-container">
+            <div class="login-content">
+                <form name="registration">
+                    <div class="login-lbl">
+                        <p class="lbl-1">Start For Free</p>
+                        <p class="lbl-2">
+                            Create new account<span></span>
+                        </p>
+                        <p class="lbl-3">
+                            Already have an account? <a href="./login.html">Login</a>
+                        </p>
                     </div>
-                    <div class="input-group">
-                        <input type="email" name="email" id="email" placeholder="Email">
+                    <div class="login-inputs">
+                        <div class="input-group">
+                            <input type="text" name="username" id="username" placeholder="Username">
+                        </div>
+                        <div class="input-group">
+                            <input type="email" name="email" id="email" placeholder="Email">
+                        </div>
+                        <div class="input-group">
+                            <input type="password" name="password" id="password" placeholder="Password">
+                        </div>
+                        <button class="btn btn-default btn-rounded" type="button" id="register">Register</button>
                     </div>
-                    <div class="input-group">
-                        <input type="password" name="password" id="password" placeholder="Password">
-                    </div>
-                    <button class="btn btn-default btn-rounded" type="button">Register</button>
-                </div>
-            </form>
+                </form>
+            </div>
+            <div class="form-validation" id="form-validation">
+                <p id="successReiteration"></p>
+                <ul id="form-validation-ul">
+
+                </ul>
+            </div>
         </div>
     </div>
     <script src="./resources/js/index.js"></script>
+    <script src="./resources/js/register.js"></script>
 </body>
 
 </html>

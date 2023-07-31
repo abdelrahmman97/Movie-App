@@ -4,12 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Favorites</title>
     <link rel="stylesheet" href="./resources/style.css">
 </head>
 
 <body>
+
+    <!-- Movie background image -->
     <div id="background-image"></div>
+
+    <!-- Left menu part -->
     <div class="left-menu">
         <div class="menu">
             <button type="button" id="btn-close" title="Close Menu">
@@ -70,7 +74,9 @@
             </ul>
         </div>
     </div>
-    <div class="container">
+
+    <div class="container page-info">
+        <!-- Header -->
         <header class="header">
             <ul>
                 <li>
@@ -103,70 +109,50 @@
                         </form>
                     </div>
                 </li>
+                <!--                 <li class="dropdown"> -->
                 <li>
-                    <a href="./login.html" class="header-link">Login</a>
-                </li>
-                <li>
-                    <hr class="vertical-line">
-                </li>
-                <li>
-                    <a href="./register.html" class="header-link">Register</a>
+                    <button id="dropdownAvatarNameButton" class="" type="button">
+                        <img id="dropdownAvatar" src="./resources/Images/user-avatar.jpg" alt="user photo">
+                        <span id="dropdownUserName"></span>
+                        <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 10 6" id="dropdownSvgIcon">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 4 4 4-4" />
+                        </svg>
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div id="dropdownAvatarName" class="dropdownAvatarName">
+                        <ul class="">
+                            <li>
+                                <a href="#"
+                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                            </li>
+                            <li>
+                                <a href="#" id="signout"
+                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign
+                                    out</a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
         </header>
-        <div class="registerLogin-container">
-            <div class="login-content">
-                <form name="registration">
-                    <div class="login-lbl">
-                        <p class="lbl-2">
-                            Login to your account<span></span>
-                        </p>
-                        <p class="lbl-3">
-                            Don't have an account? <a href="./register.html">Register</a>
-                        </p>
-                    </div>
-                    <div class="login-inputs">
-                        <div class="input-group">
-                            <input type="email" name="email" id="email_login" placeholder="Email">
-                        </div>
-                        <div class="input-group">
-                            <input type="password" name="password" id="password_login" placeholder="Password">
-                        </div>
-                        <button class="btn btn-default btn-rounded" type="button" id="login">Login</button>
-                    </div>
-                </form>
-            </div>
-            <div class="form-validation" id="form-validation">
-                <p id="successReiteration"></p>
-                <ul id="form-validation-ul">
 
-                </ul>
+        <!-- favorites section -->
+        <div class="fav-content">
+            <div class="fav-header">
+                <h2>Your Favorites <span id="favCount"></span></h2>
+
+            </div>
+            <div id="fav-container">
+
             </div>
         </div>
-        <!-- <div class="login-content">
-            <form action="">
-                <div class="login-lbl">
-                    <p class="lbl-2">
-                        Login to your account<span></span>
-                    </p>
-                    <p class="lbl-3">
-                        Don't have an account? <a href="./register.html">Register</a>
-                    </p>
-                </div>
-                <div class="login-inputs">
-                    <div class="input-group">
-                        <input type="email" name="email" id="email" placeholder="Email">
-                    </div>
-                    <div class="input-group">
-                        <input type="password" name="password" id="password" placeholder="Password">
-                    </div>
-                    <button class="btn btn-default btn-rounded" type="button">Login</button>
-                </div>
-            </form>
-        </div> -->
-    </div>
-    <script src="./resources/js/index.js"></script>
-    <script src="./resources/js/login.js"></script>
+
+        <!-- for left menu and background image -->
+        <script src="./resources/js/index.js"></script>
+        <!-- for favorites -->
+        <script src="./fav.js"></script>
 </body>
 
 </html>

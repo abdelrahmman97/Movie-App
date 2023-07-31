@@ -17,17 +17,28 @@ var infoReleaseDate = document.getElementById( "info-release-date" );
 var postersContainer = document.getElementById( "posters-container" );
 var actorsContainer = document.getElementById( "actors-container" );
 
+// get fav icon btn
+let addToFavBtn = document.getElementById( 'addToFav' );
+let favIcon = addToFavBtn.children[0];
+
+// get movie id
 const url = new URL( window.location.href );
 let id = url.searchParams.get( 'id' );
 console.log( id );
 
-
-
 var postersToShow = 8;
 var actorsToShow = 8;
 var showGenre = [];
-var xhr = new XMLHttpRequest();
+let data;
 
+// get favorites list
+var currentUser = JSON.parse( localStorage.getItem( "currentUser" ) );
+let users = JSON.parse( localStorage.getItem( "users" ) );
+
+
+
+// get movie data
+var xhr = new XMLHttpRequest();
 xhr.open( 'GET', `https://api.themoviedb.org/3/movie/${id}` );
 xhr.setRequestHeader( 'accept', 'application/json' );
 xhr.setRequestHeader( 'Authorization', 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMjZlMGE1ZWUwNjk5NzkyY2QyN2Q5NThhYzNlNGZmZiIsInN1YiI6IjVjZWE3Zjc5YzNhMzY4NTM5ZDFlYzcxYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.BXRPjuFGkBdwCKD8VIUmRnGjzq5fQ5DGfLCHZsLjgMU' );
@@ -38,6 +49,7 @@ xhr.onreadystatechange = function () {
         data = JSON.parse( xhr.responseText );
         // resultsArr = data.results;
         console.log( data );
+        // localStorage.setItem( "currentMovie", JSON.stringify( data ) )
 
         // Append Info
         showTitle.innerHTML = data.title;
@@ -52,6 +64,14 @@ xhr.onreadystatechange = function () {
         infoGenre.innerHTML = `${showGenre.join( ", " )}`;
         infoReleaseDate.innerHTML = `${new Date( data.release_date ).getFullYear()}`;
 
+        // update fav btn icon
+        let check = currentUser.favorites.some( movie => movie.id === data.id );
+        if ( check ) {
+            favIcon.classList.add( "active" );
+        }
+        else {
+            favIcon.classList.remove( "active" );
+        }
 
     }
 }
@@ -66,11 +86,11 @@ xhrPosters.send();
 
 xhrPosters.onreadystatechange = function () {
     if ( xhrPosters.readyState == 4 ) {
-        data = JSON.parse( xhrPosters.responseText );
-        // resultsArr = data.posters;
-        resultsArr = data.backdrops;
-        // resultsArr = data.logos;
-        console.log( data );
+        var posters = JSON.parse( xhrPosters.responseText );
+        // resultsArr = posters.posters;
+        resultsArr = posters.backdrops;
+        // resultsArr = posters.logos;
+        console.log( posters );
 
         // Append Info
         for ( var index = 0; index < postersToShow; index++ ) {
@@ -123,3 +143,33 @@ xhrActors.onreadystatechange = function () {
 
     }
 }
+
+
+// add movie to favorites
+addToFavBtn.addEventListener( 'click', function () {
+
+
+    let userIndex = users.findIndex( user => user.email === currentUser.email );
+    console.log( userIndex );
+
+    let index = currentUser.favorites.findIndex( movie => movie.id === data.id );
+    console.log( index );
+    if ( index > -1 ) {
+        favIcon.classList.remove( "active" );
+        currentUser.favorites.splice( index, 1 );
+        users[userIndex] = currentUser;
+        localStorage.setItem( "currentUser", JSON.stringify( currentUser ) );
+        localStorage.setItem( "users", JSON.stringify( users ) );
+        alert( "removed from favorites" )
+    }
+    else {
+        favIcon.style.animation = "like 0.5s 1";
+        favIcon.classList.add( "active" );
+        currentUser.favorites.push( data );
+        users[userIndex] = currentUser;
+        localStorage.setItem( "currentUser", JSON.stringify( currentUser ) );
+        localStorage.setItem( "users", JSON.stringify( users ) );
+        alert( "add to favorites" )
+    }
+
+} );
