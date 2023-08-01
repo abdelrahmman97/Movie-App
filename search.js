@@ -308,12 +308,12 @@ function DisplayMoviesBySmallerVote( Vote ) {
 // Add to favorites
 
 async function addToFavorites( movieId ) {
-    var currentUser = JSON.parse( localStorage.getItem( "currentUser" ) );
+    var currentUser = JSON.parse( sessionStorage.getItem( "currentUser" ) );
 
     let data;
 
     // get favorites list
-    var currentUser = JSON.parse( localStorage.getItem( "currentUser" ) );
+    var currentUser = JSON.parse( sessionStorage.getItem( "currentUser" ) );
     let users = JSON.parse( localStorage.getItem( "users" ) );
 
 
@@ -338,14 +338,14 @@ async function addToFavorites( movieId ) {
             if ( index > -1 ) {
                 currentUser.favorites.splice( index, 1 );
                 users[userIndex] = currentUser;
-                localStorage.setItem( "currentUser", JSON.stringify( currentUser ) );
+                sessionStorage.setItem( "currentUser", JSON.stringify( currentUser ) );
                 localStorage.setItem( "users", JSON.stringify( users ) );
                 alert( "removed from favorites" )
             }
             else {
                 currentUser.favorites.push( data );
                 users[userIndex] = currentUser;
-                localStorage.setItem( "currentUser", JSON.stringify( currentUser ) );
+                sessionStorage.setItem( "currentUser", JSON.stringify( currentUser ) );
                 localStorage.setItem( "users", JSON.stringify( users ) );
                 alert( "add to favorites" )
             }

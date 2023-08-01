@@ -1,7 +1,7 @@
 var path = window.location.pathname;
 var page = path.split( "/" ).pop();
 
-var currentUser = JSON.parse( localStorage.getItem( "currentUser" ) );
+var currentUser = JSON.parse( sessionStorage.getItem( "currentUser" ) );
 switch ( page ) {
     case "index.html":
         if ( currentUser != null ) {
@@ -111,7 +111,7 @@ if ( btnOpenDropdownMenu != null && dropdownMenu != null ) {
 
     // user signout
     document.getElementById( "signout" ).addEventListener( "click", function () {
-        localStorage.removeItem( "currentUser" );
+        sessionStorage.removeItem( "currentUser" );
         window.location.replace("./login.html")
     })
 }

@@ -26,7 +26,7 @@ loginBtn.addEventListener( "click", function () {
     var index = users.findIndex( _user => _user.email === _email && _user.password === _password )
     if ( index > -1 ) {
         currentUser = users[index]
-        localStorage.setItem( "currentUser", JSON.stringify( currentUser ) )
+        sessionStorage.setItem( "currentUser", JSON.stringify( currentUser ) )
         window.location.replace( "/home.html" );
         console.log( currentUser );
     }
