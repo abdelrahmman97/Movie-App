@@ -16,7 +16,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Cinema Plus Screenshot][product-screenshot]]
+![Cinema Plus Screenshot][product-screenshot]
 
 
 This is a project I created for the ITI - Intensive Code Camp (ICC) program Scholarship. It is a web app that allows users to browse, search, bookmark and movies, series and TV shows. I used only CSS3, HTML5 and JavaScript to build this app, without any frameworks or libraries. The app uses the TMDB API to fetch and display movies, series and TV shows.
@@ -78,4 +78,4 @@ Project Link: [https://github.com/abdelrahmman97/Movie-App](https://github.com/a
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[product-screenshot]: resources/images/screenshot.jpeg
+[product-screenshot]: resources/Images/screenshot.jpeg
