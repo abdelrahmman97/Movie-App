@@ -23,6 +23,3 @@ Technologies used in the project:
 *   Pure JavaScript
 *   Browser Local Storage
 
-Team
-Abdelrahman
-Farouk
