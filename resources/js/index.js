@@ -15,6 +15,8 @@ switch ( page ) {
         }
         break;
     case "home.html":
+    case "list.html":
+    case "search.html":
     case "iteminfo.html":
     case "favorites.html":
         if ( currentUser == null ) {
@@ -115,4 +117,3 @@ if ( btnOpenDropdownMenu != null && dropdownMenu != null ) {
         window.location.replace("./login.html")
     })
 }
-

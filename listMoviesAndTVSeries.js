@@ -1,43 +1,24 @@
-// get search string
+// get media type
 const url = new URL( window.location.href );
-const search = url.searchParams.get( 's' );
-console.log( search );
+let media = url.searchParams.get( 'media' );
+console.log( media );
 
-// let searchBtn = document.getElementById( "searchBtn" );
 
-const listContainer = document.getElementById( "list-container" );
-const pagination = document.getElementById( "pagination" );
+var listContainer = document.getElementById( "list-container" );
+var pagination = document.getElementById( "pagination" );
 
-const ItemsToShow = 20;
-let totalPages = 1;
-let currentPage = 1;
+var ItemsToShow = 20;
+var totalPages = 1;
+var currentPage = 1;
 
 var Data;
 var DataResultsArr;
-var TVGenresArray = [];
-var MoviesGenresArray = [];
+var DataGenresArray = [];
+
 
 // get user and favorites
 var currentUser = JSON.parse( sessionStorage.getItem( "currentUser" ) );
 var users = JSON.parse( localStorage.getItem( "users" ) );
-
-// get genres
-const tv_genre = JSON.parse( localStorage.getItem( "TVGenres" ) );
-const movies_genre = JSON.parse( localStorage.getItem( "MoviesGenres" ) );
-
-
-document.addEventListener( 'DOMContentLoaded', () => {
-    for ( let i = currentPage; i < 6; i++ ) {
-        pagination.innerHTML += `<a href="#" class="btn btn-alt ${( i == 1 ) ? "active" : ""}" data-page="${i} ">${i}</a>`;
-    }
-    getData( currentPage );
-} );
-
-if ( search != "" || search != null ) {
-    // https://api.themoviedb.org/3/search/multi?query=batman&include_adult=false&language=en-US&page=1
-    getData( currentPage )
-
-}
 
 
 function addToFavorites( mediaType, mediaId ) {
@@ -47,7 +28,7 @@ function addToFavorites( mediaType, mediaId ) {
 
     let data;
 
-    // get data
+    // get movie data
     var xhr = new XMLHttpRequest();
     xhr.open( 'GET', `https://api.themoviedb.org/3/${mediaType}/${mediaId}` );
     xhr.setRequestHeader( 'accept', 'application/json' );
@@ -91,6 +72,13 @@ function addToFavorites( mediaType, mediaId ) {
 }
 
 
+document.addEventListener( 'DOMContentLoaded', function () {
+    for ( let i = currentPage; i < 6; i++ ) {
+        pagination.innerHTML += `<a href="#" class="btn btn-alt ${( i == 1 ) ? "active" : ""}" data-page="${i} ">${i}</a>`;
+    }
+    getData( currentPage );
+} );
+
 function updatePagination() {
     pagination.innerHTML = "";
     for ( let i = currentPage; i <= currentPage + 6 && i < totalPages; i++ ) {
@@ -110,48 +98,62 @@ function updatePagination() {
 }
 
 async function getData( pageNumber ) {
-    var xhrSearch = new XMLHttpRequest();
-    xhrSearch.open( "Get", `https://api.themoviedb.org/3/search/multi?query=${search}&include_adult=false&language=en-US&page=1` );
-    xhrSearch.setRequestHeader( 'accept', 'application/json' );
-    xhrSearch.setRequestHeader( 'Authorization', 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMjZlMGE1ZWUwNjk5NzkyY2QyN2Q5NThhYzNlNGZmZiIsInN1YiI6IjVjZWE3Zjc5YzNhMzY4NTM5ZDFlYzcxYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.BXRPjuFGkBdwCKD8VIUmRnGjzq5fQ5DGfLCHZsLjgMU' );
-    xhrSearch.send();
-    xhrSearch.onreadystatechange = function () {
-        if ( xhrSearch.readyState == 4 && xhrSearch.status == 200 ) {
-            Data = JSON.parse( xhrSearch.responseText );
-            DataResultsArr = Data.results;
-            console.log( "🚀 ~ Data:", Data )
-            totalPages = Data.total_pages;
-            listContainer.innerHTML = "";
+    var xhr = new XMLHttpRequest();
+    xhr.open( "Get", `https://api.themoviedb.org/3/genre/${media}/list` );
+    xhr.setRequestHeader( 'accept', 'application/json' );
+    xhr.setRequestHeader( 'Authorization', 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMjZlMGE1ZWUwNjk5NzkyY2QyN2Q5NThhYzNlNGZmZiIsInN1YiI6IjVjZWE3Zjc5YzNhMzY4NTM5ZDFlYzcxYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.BXRPjuFGkBdwCKD8VIUmRnGjzq5fQ5DGfLCHZsLjgMU' );
+    xhr.send();
+    xhr.onreadystatechange = function () {
+        if ( xhr.readyState == 4 && xhr.status == 200 ) {
+            DataGenres = JSON.parse( xhr.responseText );
 
-            for ( var index = 0; index < ItemsToShow; index++ ) {
-                var skip = false;
-                // check if in fav
-                let favIndex = currentUser.favorites.findIndex( movie => movie.id === DataResultsArr[index].id );
-                var activeClass = ( favIndex > -1 ) ? "active" : "";
+            var xhrTVSeries = new XMLHttpRequest();
+            xhrTVSeries.open( "Get", `https://api.themoviedb.org/3/${media}/popular?api_key=f26e0a5ee0699792cd27d958ac3e4fff&page=${pageNumber}` );
+            xhrTVSeries.setRequestHeader( 'accept', 'application/json' );
+            xhrTVSeries.setRequestHeader( 'Authorization', 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMjZlMGE1ZWUwNjk5NzkyY2QyN2Q5NThhYzNlNGZmZiIsInN1YiI6IjVjZWE3Zjc5YzNhMzY4NTM5ZDFlYzcxYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.BXRPjuFGkBdwCKD8VIUmRnGjzq5fQ5DGfLCHZsLjgMU' );
+            xhrTVSeries.send();
+            xhrTVSeries.onreadystatechange = function () {
+                if ( xhrTVSeries.readyState == 4 && xhrTVSeries.status == 200 ) {
+                    Data = JSON.parse( xhrTVSeries.responseText );
+                    DataResultsArr = Data.results;
+                    console.log( "🚀 ~ Data:", Data )
+                    totalPages = Data.total_pages;
+                    listContainer.innerHTML = "";
 
-                let title, genre;
-                let genre_ids = DataResultsArr[index].genre_ids;
-                if ( DataResultsArr[index].media_type == "movie" ) {
-                    title = DataResultsArr[index].original_title
-                    var xGenreNumber = DataResultsArr[index].genre_ids[0];
-                    genre = movies_genre.genres[movies_genre.genres.findIndex( ( item ) => item.id == xGenreNumber )];
-                }
-                else if ( DataResultsArr[index].media_type == 'tv' ) {
-                    title = DataResultsArr[index].name
-                    var xGenreNumber = DataResultsArr[index].genre_ids[0];
-                    genre = tv_genre.genres[tv_genre.genres.findIndex( ( item ) => item.id == xGenreNumber )];
-                }
+                    for ( var index = 0; index < ItemsToShow; index++ ) {
+                        var skip = false;
+                        // check if in fav
+                        let favIndex = currentUser.favorites.findIndex( movie => movie.id === DataResultsArr[index].id );
+                        var activeClass = ( favIndex > -1 ) ? "active" : "";
 
-                if ( skip ) { continue }
+                        // get genres
+                        var genreArr = [];
+                        var genre_ids = DataResultsArr[index].genre_ids;
+                        genre_ids.forEach( element => {
+                            let xGenre = DataGenres.genres.find( x => x.id === element );
+                            if ( xGenre != null ) {
+                                if ( xGenre.name.toLowerCase() == "News".toLowerCase() ) { skip = true };
+                                genreArr.push( xGenre.name );
+                            }
+                        } );
 
-                var mediaImg = ( DataResultsArr[index].backdrop_path == null ) ? DataResultsArr[index].poster_path : DataResultsArr[index].backdrop_path;
+                        if ( skip ) {
+                            continue
+                        }
 
-                listContainer.innerHTML += `
+                        var mediaImg = ( DataResultsArr[index].backdrop_path == null ) ? DataResultsArr[index].poster_path : DataResultsArr[index].backdrop_path;
+                        let title;
+                        if ( media == 'movie' )
+                            title = DataResultsArr[index].original_title
+                        else
+                            title =  DataResultsArr[index].name
+
+                        listContainer.innerHTML += `
                         <div title="title" class="movie-card">
                             <div class="movie-poster">
                                 <img class="movie-poster-img" title="${DataResultsArr[index].name}"
                                     src="https://image.tmdb.org/t/p/original/${mediaImg}" />
-                                    <span class="movie-gener">${genre.name}</span>
+                                    <span class="movie-gener">${genreArr.slice( 0, 3 ).join( ", " )}</span>
                             </div>
                             <div class="movie-info">
                                 <p class="movies-title">${title}</p>
@@ -163,13 +165,13 @@ async function getData( pageNumber ) {
                                     </svg>
                                 </button>
                             <div>
-                        </div>
-                        `;
+                        </div>`;
+                    }
+                }
             }
         }
     }
 }
-
 
 pagination.addEventListener( "click", function ( event ) {
     let element = event.target;
@@ -191,6 +193,5 @@ document.getElementById( "next" ).addEventListener( "click", function () {
     currentPage++;
     updatePagination();
 } );
-
 
 

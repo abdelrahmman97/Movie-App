@@ -234,10 +234,10 @@
                     </button>
                 </li>
                 <li>
-                    <a href="#" class="header-link">Movies</a>
+                    <a href="./list.html?media=movie" class="header-link">Movies</a>
                 </li>
                 <li>
-                    <a href="#" class="header-link">Series</a>
+                    <a href="./list.html?media=tv" class="header-link">Tv Series</a>
                 </li>
             </ul>
             <a href="/index.html" class="logo" id="logo-plus" data-replace="+">
@@ -249,8 +249,8 @@
             <ul>
                 <li>
                     <div>
-                        <form action="">
-                            <input type="search" name="search" id="search" placeholder="Search">
+                        <form action="./search.html">
+                            <input type="search" name="s" id="search" placeholder="Search">
                         </form>
                     </div>
                 </li>
@@ -317,15 +317,50 @@
                     </ul>
                 </div>
             </div>
-            <div id="search-resualt">
 
+            <!-- data section -->
+            <div class="fav-content">
+                <div class="list-container" style="margin: 0; width: 100%;">
+                    <div class="fav-header">
+                        <h2>You searched for: <span id="searchText"></span></h2>
+                    </div>
+                    <div id="list-container">
+
+                    </div>
+
+                    <div class="pagination">
+                        <a href="#" class="btn btn-alt" title="Previous page" id="prev">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" />
+                            </svg>
+                        </a>
+                        <div id="pagination">
+                        </div>
+                        <!-- <a href="#" class="btn btn-alt">1</a>
+                                        <a href="#" class="btn btn-alt active">2</a>
+                                        <a href="#" class="btn btn-alt">3</a>
+                                        <a href="#" class="btn btn-alt">4</a>
+                                        <a href="#" class="btn btn-alt">5</a>
+                                        <a href="#" class="btn btn-alt">6</a> -->
+                        <a href="#" class="btn btn-alt" title="Next page" id="next">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
 
-        <!-- for left menu and background image -->
-        <script src="./resources/js/index.js"></script>
-        <!-- for favorites -->
-        <script src="./search.js"></script>
+    <!-- for left menu and background image -->
+    <script src="./resources/js/index.js"></script>
+    <!-- for search -->
+    <script src="./search.js"></script>
 </body>
 
 </html>

@@ -17,6 +17,12 @@ var infoReleaseDate = document.getElementById( "info-release-date" );
 var postersContainer = document.getElementById( "posters-container" );
 var actorsContainer = document.getElementById( "actors-container" );
 
+// for video modal
+let videoModal = document.getElementById( 'video-modal' );
+let trailerBtn = document.getElementById( 'trailerBtn' );
+let videoModalClose = document.getElementById( 'btn-close-modal-video' );
+let videoTrailer = document.getElementById( 'videoTrailer' );
+
 // get fav icon btn
 let addToFavBtn = document.getElementById( 'addToFav' );
 let favIcon = addToFavBtn.children[0];
@@ -56,7 +62,7 @@ xhr.onreadystatechange = function () {
         showDesc.innerHTML = data.overview;
         movieBgImage.style.backgroundImage = `url("https://image.tmdb.org/t/p/original/${data.backdrop_path}")`;
 
-        infoRate.innerHTML = `<span class="vote-average">${data.vote_average}</span><span class="vote-count">| ${data.vote_count}</span>`;
+        infoRate.innerHTML = `<span class="vote-average">${data.vote_average.toFixed(1)}</span><span class="vote-count">| ${data.vote_count}</span>`;
         infoRuntime.innerHTML = `${convertMinutesToHoursAndMinutes( data.runtime )}`;
         data.genres.forEach( genre => {
             showGenre.push( genre.name );
@@ -148,7 +154,6 @@ xhrActors.onreadystatechange = function () {
 // add movie to favorites
 addToFavBtn.addEventListener( 'click', function () {
 
-
     let userIndex = users.findIndex( user => user.email === currentUser.email );
     console.log( userIndex );
 
@@ -173,3 +178,35 @@ addToFavBtn.addEventListener( 'click', function () {
     }
 
 } );
+
+
+// get trailer
+var xhrVideos = new XMLHttpRequest();
+xhrVideos.open( 'GET', `https://api.themoviedb.org/3/movie/${id}/videos` );
+xhrVideos.setRequestHeader( 'accept', 'application/json' );
+xhrVideos.setRequestHeader( 'Authorization', 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMjZlMGE1ZWUwNjk5NzkyY2QyN2Q5NThhYzNlNGZmZiIsInN1YiI6IjVjZWE3Zjc5YzNhMzY4NTM5ZDFlYzcxYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.BXRPjuFGkBdwCKD8VIUmRnGjzq5fQ5DGfLCHZsLjgMU' );
+xhrVideos.send();
+
+xhrVideos.onreadystatechange = function () {
+    if ( xhrVideos.readyState == 4 ) {
+        var videos = JSON.parse( xhrVideos.responseText );
+        resultsArr = videos.results;
+        console.log( videos );
+
+        // Append Info
+        var trailerId = resultsArr.findIndex( vid => ( vid.name.toLowerCase() == "Official Trailer".toLowerCase() || ( vid.official == true && vid.type == "Trailer" ) ) );
+        console.log( trailerId );
+        videoTrailer.src = `https://www.youtube.com/embed/${resultsArr[trailerId].key}`;
+
+        console.log( "🚀 ~ file: iteminfo.js:201 ~ resultsArr[trailerId].key:", resultsArr[trailerId].key )
+    }
+}
+
+// video modal
+trailerBtn.addEventListener( "click", function () {
+    videoModal.classList.toggle( "open" );
+} )
+
+videoModalClose.addEventListener( "click", function () {
+    videoModal.classList.remove( "open" );
+} )

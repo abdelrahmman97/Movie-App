@@ -1,6 +1,6 @@
 let favContainer = document.getElementById( 'fav-container' );
 let favCount = document.getElementById( 'favCount' );
-var currentUser = JSON.parse( localStorage.getItem( "currentUser" ) );
+var currentUser = JSON.parse( sessionStorage.getItem( "currentUser" ) );
 
 favCount.innerHTML = ` ${currentUser.favorites.length} `;
 
@@ -13,14 +13,15 @@ function getFavorites( item ) {
     if ( item == -1 ) {
         favContainer.innerHTML = "";
         for ( let fav = 0; fav < currentUser.favorites.length; fav++ ) {
+            var title = ( currentUser.favorites[fav].title === undefined ) ? currentUser.favorites[fav].name : currentUser.favorites[fav].title;
             favContainer.innerHTML += `
                 <a href="#" title="title" class="movie-card">
                     <div class="movie-poster">
-                        <img class="movie-poster-img" title="${currentUser.favorites[fav].title}"
+                        <img class="movie-poster-img" title="${title}"
                             src="https://image.tmdb.org/t/p/original/${currentUser.favorites[fav].backdrop_path}" />
                     </div>
                     <div class="movie-info">
-                        <p class="movies-title">${currentUser.favorites[fav].title}</p>
+                        <p class="movies-title">${title}</p>
                         <button type="button" onclick="getFavorites(${fav})"
                             class="btn btn-transparent with-icon fav-btn active" title="Add to favorites" id="addToFav">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="" id="favIcon">
@@ -42,7 +43,7 @@ function getFavorites( item ) {
     // localStorage.setItem( "users", JSON.stringify( users ) );
     let userIndex = users.findIndex( user => user.email == currentUser.email );
     users[userIndex] = currentUser;
-    localStorage.setItem( "currentUser", JSON.stringify( currentUser ) );
+    sessionStorage.setItem( "currentUser", JSON.stringify( currentUser ) );
     localStorage.setItem( "users", JSON.stringify( users ) );
 
     favCount.innerHTML = ` ${currentUser.favorites.length} `;

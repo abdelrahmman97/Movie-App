@@ -89,10 +89,10 @@
                     </button>
                 </li>
                 <li>
-                    <a href="#" class="header-link">Movies</a>
+                    <a href="./list.html?media=movie" class="header-link">Movies</a>
                 </li>
                 <li>
-                    <a href="#" class="header-link">Series</a>
+                    <a href="./list.html?media=tv" class="header-link">Tv Series</a>
                 </li>
             </ul>
             <a href="/index.html" class="logo" id="logo-plus" data-replace="+">
@@ -104,8 +104,8 @@
             <ul>
                 <li>
                     <div>
-                        <form action="">
-                            <input type="search" name="search" id="search" placeholder="Search">
+                        <form action="./search.html">
+                            <input type="search" name="s" id="search" placeholder="Search">
                         </form>
                     </div>
                 </li>
@@ -197,7 +197,7 @@
                         </svg>
                         Play Now
                     </button>
-                    <button type="button" class="btn btn-alt btn-transparent with-icon">
+                    <button type="button" class="btn btn-alt btn-transparent with-icon" id="trailerBtn">
                         Trailer
                         <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -236,10 +236,26 @@
                 </div>
             </div>
 
-            <!-- for left menu and background image -->
-            <script src="./resources/js/index.js"></script>
-            <!-- for item info -->
-            <script src="./iteminfo.js"></script>
+        </div>
+    </div>
+
+    <div class="video-modal" id="video-modal">
+        <button type="button" title="close" id="btn-close-modal-video">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <div class="video-modal-body">
+            <!-- <div id="videoTrailer"></div> -->
+            <!-- <video id="videoTrailer" src="./demo-video.mp4" controls></video> -->
+            <iframe id="videoTrailer" title="trailer" src=""></iframe>
+        </div>
+    </div>
+    <!-- for left menu and background image -->
+    <script src="./resources/js/index.js"></script>
+    <!-- for item info -->
+    <script src="./iteminfo.js"></script>
 </body>
 
 </html>

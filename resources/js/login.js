@@ -1,8 +1,8 @@
 
-let loginBtn = document.getElementById( 'login' );
-let formValidation = document.getElementById( 'form-validation' );
-let successReiteration = document.getElementById( 'successReiteration' );
-let validation = document.getElementById( 'form-validation-ul' );
+const loginBtn = document.getElementById( 'login' );
+const formValidation = document.getElementById( 'form-validation' );
+const successReiteration = document.getElementById( 'successReiteration' );
+const validation = document.getElementById( 'form-validation-ul' );
 
 let users = JSON.parse( localStorage.getItem( "users" ) );
 if ( users == null ) {
@@ -20,8 +20,8 @@ loginBtn.addEventListener( "click", function () {
 
     validation.innerHTML = "";
 
-    let _email = document.getElementById( 'email_login' ).value;
-    let _password = document.getElementById( 'password_login' ).value;
+    const _email = document.getElementById( 'email_login' ).value;
+    const _password = document.getElementById( 'password_login' ).value;
 
     var index = users.findIndex( _user => _user.email === _email && _user.password === _password )
     if ( index > -1 ) {

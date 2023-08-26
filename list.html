@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CinemaPlus</title>
+    <title>Movies and Tv Series</title>
     <link rel="stylesheet" href="./resources/style.css">
 </head>
 
 <body>
-    <!-- Background image -->
+
+    <!-- Movie background image -->
     <div id="background-image"></div>
 
     <!-- Left menu part -->
@@ -59,7 +60,7 @@
 
                     </a>
                 </li>
-                <li id="fav-li">
+                <li>
                     <a href="./favorites.html" class="">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
@@ -74,7 +75,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container page-info">
         <!-- Header -->
         <header class="header">
             <ul>
@@ -108,33 +109,76 @@
                         </form>
                     </div>
                 </li>
+                <!--                 <li class="dropdown"> -->
                 <li>
-                    <a href="./login.html" class="header-link">Login</a>
-                </li>
-                <li>
-                    <hr class="vertical-line">
-                </li>
-                <li>
-                    <a href="./register.html" class="header-link">Register</a>
+                    <button id="dropdownAvatarNameButton" class="" type="button">
+                        <img id="dropdownAvatar" src="./resources/Images/user-avatar.jpg" alt="user photo">
+                        <span id="dropdownUserName"></span>
+                        <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 10 6" id="dropdownSvgIcon">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 4 4 4-4" />
+                        </svg>
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div id="dropdownAvatarName" class="dropdownAvatarName">
+                        <ul class="">
+                            <li>
+                                <a href="#"
+                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                            </li>
+                            <li>
+                                <a href="#" id="signout"
+                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign
+                                    out</a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
         </header>
 
-        <!-- Jumbotron section -->
-        <div class="home-content">
-            <p class="intro-1">Unlimited movies,<br> TV shows, and more</p>
-            <p class="intro-2">Find the latest and greatest movies and shows <br>all available on Cinema<span
-                    class="plus">Plus</span></p>
-            <div class="intro-btn-container">
-                <button type="button" class="btn btn-default btn-xlarge">Get Started</button>
-                <button type="button" class="btn btn-secondary btn-xlarge btn-alt">Show Plans</button>
+        <!-- data section -->
+        <div class="fav-content">
+            <div class="list-container">
+                <div class="fav-header">
+                    <h2>Trending <span>TV Series</span></h2>
+                </div>
+                <div id="list-container">
+
+                </div>
+
+                <div class="pagination">
+                    <a href="#" class="btn btn-alt" title="Previous page" id="prev">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" />
+                        </svg>
+                    </a>
+                    <div id="pagination">
+                    </div>
+                    <!-- <a href="#" class="btn btn-alt">1</a>
+                    <a href="#" class="btn btn-alt active">2</a>
+                    <a href="#" class="btn btn-alt">3</a>
+                    <a href="#" class="btn btn-alt">4</a>
+                    <a href="#" class="btn btn-alt">5</a>
+                    <a href="#" class="btn btn-alt">6</a> -->
+                    <a href="#" class="btn btn-alt" title="Next page" id="next">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
 
-    </div>
-
-    <!-- for left menu and background image -->
-    <script src="./resources/js/index.js"></script>
+        <!-- for left menu and background image -->
+        <script src="./resources/js/index.js"></script>
+        <!-- for favorites -->
+        <script src="./listMoviesAndTVSeries.js"></script>
 </body>
 
 </html>
