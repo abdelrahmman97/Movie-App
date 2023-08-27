@@ -6,151 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search</title>
     <link rel="stylesheet" href="./resources/style.css">
-    <style>
-        #filter ul {
-            margin: 0;
-            padding: 0;
-        }
 
-        #filter {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            width: 100%;
-        }
-
-        /*------------------main nav-------------------*/
-        .nav,
-        .nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav {
-            margin-left: 300px;
-            height: 40px;
-            line-height: 40px;
-            margin: auto;
-            color: white;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1.1em;
-            text-align: center;
-            margin-left: 530px;
-            margin-top: 30px;
-        }
-
-        .nav>li {
-            float: left;
-            width: 199px;
-            background: black;
-            border-left: 1px solid white;
-        }
-
-        .nav>li:hover {
-            background: #252625;
-            color: #0b0c0a;
-            cursor: pointer;
-        }
-
-        /*-------------------sub-nav-------------------*/
-        .sub-nav {
-            background: #3b3c3a;
-            color: #ffffff;
-            height: 0px;
-            -webkit-transition: all 0.5s ease-in;
-            transition: all 0.2s ease-in;
-            overflow: hidden;
-        }
-
-        .nav>li:hover .sub-nav {
-            height: 200px;
-        }
-
-        .sub-nav li {
-            border-top: 1px solid rgb(99, 92, 92);
-            height: 0px;
-            -webkit-transition: all 0.15s ease-in;
-            transition: all 0.15s ease-in;
-            overflow: hidden;
-        }
-
-        .sub-nav li:nth-of-type(2) {
-            -webkit-transition-delay: 0.1s;
-            transition-delay: 0.1s;
-        }
-
-        .sub-nav li:nth-of-type(3) {
-            -webkit-transition-delay: 0.15s;
-            transition-delay: 0.15s;
-        }
-
-        .nav>li:hover>.sub-nav li {
-            height: 39px;
-        }
-
-        .sub-nav li:hover {
-            background: #2d2f2b;
-            color: white;
-            font-size: 1.18em;
-        }
-
-
-
-
-
-
-        .card-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .card {
-            width: 300px;
-            min-height: 300px;
-            max-height: 600px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
-            margin: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            color: #fff;
-            cursor: pointer;
-        }
-
-        .rate {
-            color: red;
-        }
-
-
-        .card img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 5px;
-        }
-
-        .card h3 {
-            margin: 10px 0;
-        }
-
-        .card p {
-            margin: 0;
-        }
-
-
-        .addToFavorites {
-            background-color: rgb(26 86 219/1);
-            color: #fff;
-            border: none;
-            padding: 7px;
-            margin-top: 10px;
-            width: 100%;
-            border-radius: 25px;
-        }
-    </style>
 </head>
 
 <body>
@@ -283,36 +139,40 @@
             </ul>
         </header>
 
-        <!-- favorites section -->
+        <!-- Search section -->
         <div class="search-content">
             <div class="search-container">
                 <div class="search-input">
-                    <input type="search" name="search" id="searchInput" class="input-group" placeholder="Search...">
-                    <button class="btn btn-default" id="searchBtn" onclick="search()" type="button">Search</button>
+                    <form action="./search.html">
+                        <input type="search" name="search" id="searchInput" class="input-group" placeholder="Search...">
+                        <button class="btn btn-default" id="searchBtn" onclick="search()" type="button">Search</button>
+
+                    </form>
+
                 </div>
                 <div id="filter">
                     <ul class="nav">
                         <li>
-                            <a> Category</a>
-                            <ul class="sub-nav" id="Category">
-                                <li><a onclick="DisplayMoviesByGeners('Action')"> 01 - Action - </a></li>
-                                <li><a onclick="DisplayMoviesByGeners('Adventure')"> 02 - Adventure - </a> </li>
-                                <li><a onclick="DisplayMoviesByGeners('Drama')"> 03 - Drama - </a> </li>
-                            </ul>
+                            <p>Type</p>
+                            <select name="type" id="type" class="custom-input">
+                                <option value="movie">Movie</option>
+                                <option value="tvshow">TV Show</option>
+                            </select>
                         </li>
                         <li>
-                            <a> Date </a>
-                            <ul class="sub-nav">
-                                <li><a onclick="DisplayMoviesByBefore('2021-01-01')"> Before 2022</a></li>
-                                <li><a onclick="DisplayMoviesByAfter('2022-01-01')"> After 2022</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a>Vote</a>
-                            <ul class="sub-nav">
-                                <li><a onclick="DisplayMoviesByVote('1000')"> Grater Than 1000 Vote </a></li>
-                                <li><a onclick="DisplayMoviesBySmallerVote('1000')"> Samller Than 1000 Vote </a></li>
-                            </ul>
+                            <p>Sort by</p>
+                            <select name="sort" id="sort" class="custom-input">
+                                <option value="popularity.asc">popularity.asc</option>
+                                <option value="popularity.desc" selected>popularity desc</option>
+                                <option value="revenue.asc">revenue asc</option>
+                                <option value="revenue.desc">revenue desc</option>
+                                <option value="primary_release_date.asc">primary release date asc</option>
+                                <option value="primary_release_date.desc">primary release date desc</option>
+                                <option value="vote_average.asc">vote average asc</option>
+                                <option value="vote_average.desc">vote average desc</option>
+                                <option value="vote_count.asc">vote count asc</option>
+                                <option value="vote_count.desc">vote count desc</option>
+                            </select>
                         </li>
                     </ul>
                 </div>
@@ -321,12 +181,12 @@
             <!-- data section -->
             <div class="fav-content">
                 <div class="list-container" style="margin: 0; width: 100%;">
+
                     <div class="fav-header">
                         <h2>You searched for: <span id="searchText"></span></h2>
                     </div>
-                    <div id="list-container">
 
-                    </div>
+                    <div id="list-container"></div>
 
                     <div class="pagination">
                         <a href="#" class="btn btn-alt" title="Previous page" id="prev">
@@ -336,14 +196,9 @@
                                     d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" />
                             </svg>
                         </a>
-                        <div id="pagination">
-                        </div>
-                        <!-- <a href="#" class="btn btn-alt">1</a>
-                                        <a href="#" class="btn btn-alt active">2</a>
-                                        <a href="#" class="btn btn-alt">3</a>
-                                        <a href="#" class="btn btn-alt">4</a>
-                                        <a href="#" class="btn btn-alt">5</a>
-                                        <a href="#" class="btn btn-alt">6</a> -->
+
+                        <div id="pagination"></div>
+
                         <a href="#" class="btn btn-alt" title="Next page" id="next">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="w-6 h-6">
@@ -352,6 +207,7 @@
                             </svg>
                         </a>
                     </div>
+
                 </div>
             </div>
         </div>
