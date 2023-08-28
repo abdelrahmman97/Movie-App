@@ -1,6 +1,7 @@
 // get search string
 const url = new URL( window.location.href );
 const search = url.searchParams.get( 's' );
+document.getElementById( "searchText" ).innerHTML = search;
 console.log( search );
 
 // let searchBtn = document.getElementById( "searchBtn" );
@@ -172,8 +173,13 @@ async function getData( pageNumber ) {
                 listContainer.innerHTML += `
                         <div title="title" class="movie-card">
                             <div class="movie-poster">
-                                <img class="movie-poster-img" title="${ DataResultsArr[ index ].name }"
-                                    src="https://image.tmdb.org/t/p/original/${ mediaImg }" />
+
+
+                    ${( mediaImg == null ) ?
+                        `<img class="movie-poster-img" src="https://picturesofmaidenhead.files.wordpress.com/2019/01/image-not-found.jpg?w=1620"/>`
+                    : `<img class="movie-poster-img" title="${ DataResultsArr[ index ].name }"
+                                    src="${ ( mediaImg == null ) ? "" : 'https://image.tmdb.org/t/p/original/' + mediaImg }" />`}
+                                        
                                     <span class="movie-gener">${ genreArr.slice( 0, 3 ).join( ", " ) }</span>
                             </div>
                             <div class="movie-info">
