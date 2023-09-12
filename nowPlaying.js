@@ -29,7 +29,7 @@ var resultsArr;
 var xhr = new XMLHttpRequest();
 
 // xhr.open( "Get", 'https://api.themoviedb.org/3/trending/all/day' );
-xhr.open( "Get", 'https://api.themoviedb.org/3/movie/now_playing' );
+xhr.open( "Get", 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1' );
 
 xhr.setRequestHeader( 'accept', 'application/json' );
 xhr.setRequestHeader( 'Authorization', 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMjZlMGE1ZWUwNjk5NzkyY2QyN2Q5NThhYzNlNGZmZiIsInN1YiI6IjVjZWE3Zjc5YzNhMzY4NTM5ZDFlYzcxYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.BXRPjuFGkBdwCKD8VIUmRnGjzq5fQ5DGfLCHZsLjgMU' );

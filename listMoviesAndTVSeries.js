@@ -149,7 +149,7 @@ async function getData( pageNumber ) {
                             title =  DataResultsArr[index].name
 
                         listContainer.innerHTML += `
-                        <div title="title" class="movie-card">
+                        <a title="title" class="movie-card" href="/iteminfo.html?id=${DataResultsArr[index].id}">
                             <div class="movie-poster">
                                 <img class="movie-poster-img" title="${DataResultsArr[index].name}"
                                     src="https://image.tmdb.org/t/p/original/${mediaImg}" />
