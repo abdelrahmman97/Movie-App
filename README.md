@@ -21,7 +21,7 @@
 
 This is a project I created for the ITI - Intensive Code Camp (ICC) program Scholarship. It is a web app that allows users to browse, search, bookmark and movies, series and TV shows. I used only CSS3, HTML5 and JavaScript to build this app, without any frameworks or libraries. The app uses the TMDB API to fetch and display movies, series and TV shows.
 <br />
-You can view the live demo here: [https://cinema-plus-movie-app.netlify.app/](https://cinemaplus-movieapp.netlify.app/)
+You can view the live demo here: [https://cinemaplus-movieapp.netlify.app/](https://cinemaplus-movieapp.netlify.app/)
 
 ## Feature
 
