@@ -66,7 +66,9 @@ You can view the live demo here: [https://cinemaplus-movieapp.netlify.app/](http
 
 Abdelrahman Mahmoud - abdelrahman.m1097@gmail.com
 
-Project Link: [https://github.com/abdelrahmman97/Movie-App](https://github.com/abdelrahmman97/Movie-App)
+Project Links: 
+- Github:  [https://github.com/abdelrahmman97/Movie-App](https://github.com/abdelrahmman97/Movie-App)
+- Preview: https://cinemaplus-movieapp.netlify.app/
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
