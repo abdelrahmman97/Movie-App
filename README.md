@@ -52,15 +52,6 @@ You can view the live demo here: [https://cinemaplus-movieapp.netlify.app/](http
 <!-- USAGE EXAMPLES -->
 
 
-<!-- ROADMAP -->
-## Roadmap
-
-- [ ] Create a new version using Tailwindcss
-- [ ] Create a new version using Angular
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 <!-- CONTACT -->
 ## Contact
 
